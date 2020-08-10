@@ -1,0 +1,31 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>TODO-APP</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+
+<body>
+
+<form th:action="@{/addTodo}" method="post" th:object="${todo}" >
+    <input type="hidden" th:field="*{id}">
+    <div class="jumbotron">
+    <div class="container center_div">
+    <div class="form-group">
+        What's the Task : <input type="text" class="form-control" name="title" th:field="*{title}">
+    </div>
+    <div class="form-group">
+        Deadline : <input type="text" class="form-control" name="targetDate" th:field="*{targetDate}" placeholder="dd/mm/yyyy">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Task</button>
+    </div>
+    </div>
+</form>
+
+</body>
+</html>

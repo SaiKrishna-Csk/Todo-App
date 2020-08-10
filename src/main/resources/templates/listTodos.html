@@ -1,0 +1,42 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>TODO-APP</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+
+<body>
+<div class="jumbotron">
+    <h2 align="center">Things to be Done !</h2>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Task</th>
+        <th scope="col">Dead-line</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <th:block th:each="todo : ${todos}">
+        <tr>
+            <td th:text="${todo.title}">...</td>
+            <td th:text="${todo.targetDate}">...</td>
+            <td>
+                <a th:href="@{/updateTodo(id=${todo.id})}" type="button" class="btn btn-warning">Edit</a>
+                <a th:href="@{/deleteTodo(id=${todo.id})}" type="button" class="btn btn-danger">Completed</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<p align="center"><a th:href="@{/addTodo}" type="button" class="btn btn-success">+ AddTask</a></p></div>
+
+</body>
+</html>
