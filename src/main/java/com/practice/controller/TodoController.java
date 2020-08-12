@@ -27,10 +27,10 @@ public class TodoController {
     }
 
     @GetMapping("/todos")
-    public String allTodos(ModelMap map){
-
-        map.put("todos",todoService.listTodos());
-
+    public String allTodos(ModelMap map,
+                           @RequestParam(value="page",defaultValue="1") int page){
+        map.put("todos",todoService.listTodos(page-1));
+        map.put("currentPage",page);
         return "listTodos";
     }
 

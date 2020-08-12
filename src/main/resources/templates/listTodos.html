@@ -16,14 +16,14 @@
 <table class="table">
     <thead class="thead-dark">
     <tr>
-        <th scope="col">Id</th>
         <th scope="col">Task</th>
         <th scope="col">Dead-line</th>
+        <th scope="col">Update</th>
     </tr>
     </thead>
     <tbody>
 
-    <th:block th:each="todo : ${todos}">
+    <th:block th:each="todo : ${todos.content}">
         <tr>
             <td th:text="${todo.title}">...</td>
             <td th:text="${todo.targetDate}">...</td>
@@ -35,6 +35,14 @@
     </th:block>
     </tbody>
 </table>
+    <!-- PAGINATION -->
+<hr/>
+    <ul class="nav nav-pills">
+
+        Check More : <li class="nav-item" th:each="i : ${#numbers.sequence(1,todos.totalPages)}">
+           <a th:href="@{todos(page=${i})}" th:text="${i}" class="nav-link" th:classappend="${currentPage}==${i}?'active':''"></a>
+        </li>
+    </ul>
 
 <p align="center"><a th:href="@{/addTodo}" type="button" class="btn btn-success">+ AddTask</a></p></div>
 
