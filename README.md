@@ -1,6 +1,11 @@
 # Todo-App
-A Basic application to keep track of our tasks to be done.
+Todo Application to keep note of all your tasks to be completed.
 
+Features of this application :
+1) App is authenticated and authorized.
+2) The Data persists even after session is closed.
+3) Pagination and Sorting(based on deadline)
+4) We can delete and update the todos.
+5) Basic Styling - Bootstrap
 
-A SpringBoot application which is DataBase Driven - inbuilt h2 DB.
-This data persists all-time.
+Technologies : SpringBoot, Thymeleaf, H2, Spring Data JPA.
